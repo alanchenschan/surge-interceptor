@@ -1,8 +1,8 @@
-#!name=Ahrefs 拦截器
-#!desc=拦截 Ahrefs API 请求并保存响应数据
+#!name=Ahrefs 反向链接拦截器
+#!desc=拦截 Ahrefs 反向链接 API 请求并保存响应数据
 
 [Script]
-ahrefs_interceptor = type=http-response,pattern=^https://ahrefs\.com/v4/(stGetFreeBacklinksOverview|stGetFreeBacklinksList),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/alanchenschan/surge-interceptor/refs/heads/main/ahrefs_interceptor.js
+ahrefs_backlinks = type=http-response,pattern=^https://ahrefs\.com/v4/stGetFreeBacklinksList$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/alanchenschan/surge-interceptor/refs/heads/main/ahrefs_interceptor.js
 
 [MITM]
 hostname = %APPEND% ahrefs.com
